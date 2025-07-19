@@ -1,0 +1,4 @@
+# Essential dependencies for voice cloning with translation
+TTS>=0.17.0
+torch>=1.13.0
+googletrans==4.0.0rc1
