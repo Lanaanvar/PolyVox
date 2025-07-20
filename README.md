@@ -2,6 +2,8 @@
 
 PolyVox is an innovative voice cloning and multilingual speech synthesis system developed by Code Red. It aims to revolutionize how dubbing is done by preserving the original actor’s voice and emotional delivery, even when translated into different languages.
 
+**Track** - Entertainment
+
 
 ## 📌 Problem Statement
 In traditional dubbing, actors' voices are replaced by different voice artists for each language. This leads to a loss of vocal identity, emotional disconnect, and a reduction in viewer immersion. As content becomes more global, these limitations hinder the reach and impact of films, shows, and digital media.
@@ -36,7 +38,7 @@ Use models like Xtts-v2, Tortoise-v2, or ChatterBox to synthesize the translated
 | Frontend            | React.js                         |
 
 
-##  What the Application Does
+##  Implementation
 
 1. **Translation**: Translates your text to any target language
 2. **Voice Cloning**: Clones the voice from your reference audio
@@ -44,10 +46,37 @@ Use models like Xtts-v2, Tortoise-v2, or ChatterBox to synthesize the translated
 
 [Check out PolyVox here!](https://drive.google.com/file/d/1AbF7BfDKr3_6RkX81cPw-SIGOCNgA1tD/view?usp=drive_link)
 
+## Installation
+Step 1: Clone the Repository
+
+```
+git clone https://github.com/yourusername/voice-cloning.git
+cd voice-cloning
+```
+
+Step 2: Install FFmpeg
+  1. Download FFmpeg 
+  2. Extract and add to system PATH
+
+Step 3: Create Virtual Environment
+```
+python -m venv .venv
+.venv\Scripts\activate
+```
+Step 4: Install Dependencies
+```
+pip install -r requirements.txt
+```
+
+Strp 5: Run
+```
+run_fastapi.bat
+```
+
 ## 🔭 Future Scope
 PolyVox can evolve into a fully automated multilingual dubbing solution by integrating advanced lip-syncing technologies, enabling synchronized visuals alongside voice cloning. Future improvements may include emotional tone and prosody control for more expressive and natural-sounding speech, support for low-resource languages to increase inclusivity, and real-time or on-device deployment for interactive applications like gaming and AR/VR. Additionally, offering PolyVox as a cloud-based API or SaaS platform can streamline adoption across film, OTT, and media production pipelines.
 
-## Team Members
+## Code Red
 [Lana Anvar](https://github.com/Lanaanvar)
 <br>
 [Sutharya](https://github.com/ssutharya)
