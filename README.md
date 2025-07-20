@@ -1,111 +1,60 @@
-# Simple Voice Cloning with Translation
+# PolyVox - Redefining Voice in Media
 
-## Why TTS.py is Redundant
+PolyVox is an innovative voice cloning and multilingual speech synthesis system developed by Code Red. It aims to revolutionize how dubbing is done by preserving the original actor’s voice and emotional delivery, even when translated into different languages.
 
-You're absolutely right! The `tts.py` file is redundant because:
 
-1. **Voice Cloning Model Does Both**: The Coqui TTS model in `voice-clone.py` already handles both TTS and voice cloning
-2. **Better Functionality**: Voice cloning can clone ANY voice from a reference audio, while Google Cloud TTS only provides standard voices
-3. **Integrated Solution**: Having translation + voice cloning in one place is simpler and more efficient
+## 📌 Problem Statement
+In traditional dubbing, actors' voices are replaced by different voice artists for each language. This leads to a loss of vocal identity, emotional disconnect, and a reduction in viewer immersion. As content becomes more global, these limitations hinder the reach and impact of films, shows, and digital media.
 
-## Simplified Architecture
+## Solution
+PolyVox solves this by using AI-powered voice cloning and cross-lingual TTS, allowing actors to speak naturally in multiple languages while preserving their unique vocal characteristics and performance nuances.
 
-```
-voice-cloning/
-├── app/services/voice-clone.py  # ✅ Complete solution (Translation + Voice Cloning)
-├── app/services/tts.py          # ❌ Redundant - can be removed
-├── simple_voice_clone.py        # ✅ Standalone script to run everything
-├── simple_requirements.txt      # ✅ Only essential dependencies
-└── README.md                    # ✅ This file
-```
+It produces emotionally aligned, natural-sounding speech in a translated language using only a short sample of the actor’s original voice.
 
-## Quick Start
 
-### 1. Install Dependencies
+## 🔄 Workflow
+🎧 Audio Extraction
+Extract clean speech audio from source video using FFmpeg.
 
-```bash
-pip install TTS torch googletrans==4.0.0rc1
-```
+🧠 Speech-to-Text (STT)
+Transcribe the original dialogue using OpenAI's Whisper.
 
-### 2. Add Reference Audio
+🌍 Translation
+Translate the transcribed text to the target language using Google Translate.
 
-Place a 10-30 second audio clip of the target voice as `reference_audio.wav`
+🗣️ Voice Cloning & TTS
+Use models like Xtts-v2, Tortoise-v2, or ChatterBox to synthesize the translated speech in the actor’s original voice.
 
-### 3. Run the Application
+## Tech Stack
+| Component           | Technology Used                  |
+| ------------------- | -------------------------------- |
+| Audio Processing    | FFmpeg                           |
+| Speech-to-Text      | OpenAI Whisper                   |
+| Translation         | Google Translate API             |
+| Voice Cloning & TTS | Xtts-v2, Tortoise-v2, ChatterBox |
+| Backend API         | Python, FastAPI                  |
+| Frontend            | React.js                         |
 
-```bash
-python simple_voice_clone.py
-```
 
-## What the Application Does
+##  What the Application Does
 
 1. **Translation**: Translates your text to any target language
 2. **Voice Cloning**: Clones the voice from your reference audio
 3. **Speech Generation**: Creates speech in the cloned voice with translated text
 
-## Examples
+[Check out PolyVox here!](https://drive.google.com/file/d/1AbF7BfDKr3_6RkX81cPw-SIGOCNgA1tD/view?usp=drive_link)
 
-The application includes these examples:
+## 🔭 Future Scope
+PolyVox can evolve into a fully automated multilingual dubbing solution by integrating advanced lip-syncing technologies, enabling synchronized visuals alongside voice cloning. Future improvements may include emotional tone and prosody control for more expressive and natural-sounding speech, support for low-resource languages to increase inclusivity, and real-time or on-device deployment for interactive applications like gaming and AR/VR. Additionally, offering PolyVox as a cloud-based API or SaaS platform can streamline adoption across film, OTT, and media production pipelines.
 
-- 🇫🇷 English to French + Voice Cloning
-- 🇪🇸 English to Spanish + Voice Cloning
-- 🗣️ Direct Voice Cloning (no translation)
-- 📦 Batch Processing
+## Team Members
+[Lana Anvar](https://github.com/Lanaanvar)
+<br>
+[Sutharya](https://github.com/ssutharya)
+<br>
+[Ganga](https://github.com/gangakailas)
+<br>
+[Lakshmikha Rejith](https://github.com/Lakshmikha)
 
-## Usage
 
-### Direct Usage
 
-```python
-from app.services.voice_clone import synthesize_with_cloned_voice
-
-result = synthesize_with_cloned_voice(
-    text="Hello, how are you?",
-    reference_audio="reference_audio.wav",
-    output_path="output.wav",
-    translate_to="fr",  # French
-    source_language="en"
-)
-```
-
-### Batch Processing
-
-```python
-from app.services.voice_clone import batch_process
-
-results = batch_process(
-    texts=["Hello", "How are you?", "Goodbye"],
-    reference_audio="reference_audio.wav",
-    translate_to="es",  # Spanish
-    source_language="en"
-)
-```
-
-## Why This is Better Than TTS.py
-
-| Feature       | voice-clone.py | tts.py                    |
-| ------------- | -------------- | ------------------------- |
-| Voice Cloning | ✅ Yes         | ❌ No                     |
-| Custom Voices | ✅ Any voice   | ❌ Only standard voices   |
-| Translation   | ✅ Integrated  | ❌ Separate service       |
-| Dependencies  | ✅ Simple      | ❌ Complex (Google Cloud) |
-| Setup         | ✅ Easy        | ❌ Requires credentials   |
-
-## Files You Can Remove
-
-Since the voice cloning model handles everything, you can safely remove:
-
-- `app/services/tts.py` (redundant)
-- `integrated_app.py` (too complex)
-- `run_app.py` (too complex)
-- `run_app.bat` (too complex)
-- `requirements.txt` (too many dependencies)
-
-## Keep It Simple
-
-The entire application is now in just two files:
-
-1. `app/services/voice-clone.py` - Core functionality
-2. `simple_voice_clone.py` - Easy-to-use wrapper
-
-This is much simpler, more maintainable, and more efficient!
